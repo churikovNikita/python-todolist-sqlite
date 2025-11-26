@@ -35,13 +35,13 @@ if len(rows) == 0:
     st.info("No tasks yet")
     st.stop()
 
-# Реальные ID (DB) и виртуальные номера (UI)
+# Real ID (DB) and virtual ids (UI)
 db_ids = [r[0] for r in rows]
 tasks = [r[1] for r in rows]
 
 display_numbers = list(range(1, len(tasks) + 1))
 
-# Таблица для отображения
+# Table for showing date
 table = {"№": display_numbers, "Task": tasks}
 st.dataframe(table, use_container_width=True)
 
@@ -53,7 +53,7 @@ delete_display_num = st.number_input(
 )
 
 if st.button("Delete"):
-    # Получаем реальный ID по виртуальному индексу
+    # Get real ID by virtual number
     real_db_id = db_ids[delete_display_num - 1]
 
     cursor.execute("DELETE FROM tasks WHERE id = ?", (real_db_id,))
