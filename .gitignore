@@ -1,0 +1,21 @@
+# Ignore SQLite database
+*.db
+
+# Python stuff
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Streamlit cache
+.streamlit/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# System files
+.DS_Store
+Thumbs.db
